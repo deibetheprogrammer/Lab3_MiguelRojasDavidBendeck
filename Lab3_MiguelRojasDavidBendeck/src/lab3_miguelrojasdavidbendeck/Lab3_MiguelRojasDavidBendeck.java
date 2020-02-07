@@ -23,17 +23,17 @@ public class Lab3_MiguelRojasDavidBendeck {
         Scanner sc = new Scanner(System.in);
         Random rand = new Random();
         // hola que pexis
-        
+
         ArrayList<Persona> agentesLibres = new ArrayList<>();
         ArrayList<Equipo> equipos = new ArrayList<>();
-        
+
         int posicion;
         int count = 0;
-        
+
         String vs;
-        
+
         OUTER:
-        while(true) {
+        while (true) {
             System.out.print("Menu: \n"
                     + "1) Crear equipo\n"
                     + "2) Despedir personal\n"
@@ -43,69 +43,154 @@ public class Lab3_MiguelRojasDavidBendeck {
                     + "Su opcion: ");
             int opcion = sc.nextInt();
             vs = sc.nextLine();
-            
+
             switch (opcion) {
                 case 1:
+                    System.out.println("Crear Equipo");
+                    System.out.print("Ingrese nombre del equipo: ");
+                    String nom_equipo = sc.nextLine();
+                    System.out.print("Ingrese anios de Fundacion: ");
+                    int an_fundado = sc.nextInt();
+                    vs = sc.nextLine();
+                    System.out.print("Ingrese numero de Campeonatos Ganados: ");
+                    int num_campeonato = sc.nextInt();
+                    vs = sc.nextLine();
+                    equipos.add(new Equipo(nom_equipo, an_fundado, num_campeonato));
+                    System.out.println("Agregar el Personal");
+                    System.out.println("Agregague los Jugadores");
+                    while (count < 13) {
+                        //Atributos Persona
+                        System.out.print("Ingrese nombre del Jugador: ");
+                        String nombre = sc.nextLine();
+                        System.out.print("Ingrese apellido del Jugador: ");
+                        String apellido = sc.nextLine();
+                        System.out.print("Ingrese Anios como Profesional :");
+                        int anios_prof = sc.nextInt();
+                        vs = sc.nextLine();
+                        System.out.print("Ingrese Salario del Jugador: ");
+                        int salary = sc.nextInt();
+                        vs = sc.nextLine();
+                        //Atributos Jugador
+                        System.out.print("Ingrese numero en la camiseta: ");
+                        int num_camisa = sc.nextInt();
+                        vs = sc.nextLine();
+                        System.out.print("Ingrese Rating de Tiro de 3: ");
+                        int tiro_3 = sc.nextInt();
+                        vs = sc.nextLine();
+                        System.out.print("Ingrese Rating de Defensa: ");
+                        int defensa = sc.nextInt();
+                        vs = sc.nextLine();
+                        System.out.println("Ingrese Rating de Tiro de Media");
+                        int tiro_media = sc.nextInt();
+                        vs = sc.nextLine();
+                        System.out.print("Ingrese Rating de Rebote: ");
+                        int rebote = sc.nextInt();
+                        vs = sc.nextLine();
+                        System.out.print("Ingrese Rating de Bandeja: ");
+                        int bandeja = sc.nextInt();
+                        vs = sc.nextLine();
+                        System.out.print("Ingrese Rating de Pases: ");
+                        int pases = sc.nextInt();
+                        vs = sc.nextLine();
+                        System.out.println("Ingrese Rating de Posteo: ");
+                        int posteo = sc.nextInt();
+                        vs = sc.nextLine();
+                        Double altura = 0.0;
+                        System.out.println("Altura");
+                        System.out.println("[1] Altura = 1.93m");
+                        System.out.println("[2] Altura = 2.00m");
+                        System.out.println("[3] Altura = 2.05m");
+                        System.out.println("[4] Altura = 2.10m");
+                        System.out.println("[5] Altura = 2.13m");
+                        System.out.print("Seleccione una altura: ");
+                        int opcion_alt = sc.nextInt();
+                        vs = sc.nextLine();
+                        switch (opcion_alt) {
+                            case 1:
+                                altura = 1.93;
+                                System.out.println("Su jugador es Base");
+                                break;
+                            case 2:
+                                altura = 2.00;
+                                System.out.println("Su jugador es Escolta");
+                                break;
+                            case 3:
+                                System.out.println("Su jugador Es Alero");
+                                altura = 2.05;
+                                break;
+                            case 4:
+                                System.out.println("Su jugador es Alero-Pivot");
+                                altura = 2.10;
+                                break;
+                            case 5:
+                                System.out.println("Su jugador es Centro");
+                                altura = 2.13;
+                                break;
+                            default:
+                                System.out.println("Ingrese una opcion valida");
+                        }
+
+                        equipos.get(equipos.size() - 1).getJug().add(new Jugador(num_camisa, tiro_3, defensa, tiro_media, rebote, bandeja, pases, posteo, altura, nombre, apellido, anios_prof, salary));
+                    }//Fin Agregar Jugadores
+                    System.out.println("Agregar Medicos");
                     
-                    break;
                 case 2:
-                    
+
                     System.out.print("Que tipo de personal desea despedir: \n"
                             + "1) Jugadores\n"
                             + "2) Médicos \n"
                             + "3) Entrenadores\n");
                     opcion = sc.nextInt();
                     vs = sc.nextLine();
-                    
+
                     switch (opcion) {
                         case 1:
-                            
+
                             break;
                         case 2:
-                            
+
                             break;
                         case 3:
-                            
+
                             break;
                     }
-                    
+
                     break;
                 case 3:
-                    
+
                     break;
                 case 4:
-                    
+
                     //Falta mejorar esta opción
-                    
                     System.out.println("Elija el equipo (ingrese la posicion en la lista de equipos): ");
                     posicion = sc.nextInt();
                     vs = sc.nextLine();
-                    
+
                     System.out.println("Elija un preparador físico (ingrese la posición de la lista de preparadores físicos");
                     int posEnt = sc.nextInt();
                     vs = sc.nextLine();
-                    
+
                     while (count < 3) {
                         System.out.println("Elija una jugada (ingrese la posición de la lista de jugadas): ");
                         int posJug = sc.nextInt();
-                        
+
                         if (rand.nextInt(2) == 0) {
                             System.out.println("Jugada completada con éxito !");
-                        }
-                        
-                        else {
+                        } else {
                             System.out.println("Jugada fallida");
                         }
                     }
-                    
+
                     count = 0;
-                    
+
                     break;
                 case 5:
-                    
+
                     break OUTER;
+                default:
+                    System.out.println("Ingrese una opcion valida");
             }
         }
     }
-    
+
 }

@@ -15,6 +15,11 @@ public class Equipo {
     Asistente_Entrenador asist_e = new Asistente_Entrenador(true, nombre, campeonatos, nombre, nombre, anio_fundacion);
     Dueno dueno = new Dueno(campeonatos, nombre, nombre, nombre, anio_fundacion, campeonatos);
 
+    public Equipo() {
+        
+    }
+
+
     public Equipo(String nombre, int anio_fundacion, int campeonatos) {
         this.nombre = nombre;
         this.anio_fundacion = anio_fundacion;
