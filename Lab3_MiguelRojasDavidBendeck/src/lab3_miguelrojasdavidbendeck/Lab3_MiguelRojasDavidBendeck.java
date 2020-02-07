@@ -131,8 +131,79 @@ public class Lab3_MiguelRojasDavidBendeck {
                         }
 
                         equipos.get(equipos.size() - 1).getJug().add(new Jugador(num_camisa, tiro_3, defensa, tiro_media, rebote, bandeja, pases, posteo, altura, nombre, apellido, anios_prof, salary));
+                        count++;
                     }//Fin Agregar Jugadores
+                    count = 0;
                     System.out.println("Agregar Medicos");
+                    
+                    while(true) {
+                        System.out.print("Ingrese nombre del medico: ");
+                        String nombre = sc.nextLine();
+                        System.out.print("Ingrese apellido del medico: ");
+                        String apellido = sc.nextLine();
+                        System.out.print("Ingrese Anios como medico :");
+                        int an_profesional = sc.nextInt();
+                        vs = sc.nextLine();
+                        System.out.print("Ingrese Salario del medico: ");
+                        int salario = sc.nextInt();
+                        vs = sc.nextLine();
+                        
+                        System.out.println("Ingrese el Colegio del medico");
+                        String colegio = sc.nextLine();
+                        
+                        System.out.print("Tipo de medico: \n"
+                                + "1) Medico general\n"
+                                + "2) Cirujano\n"
+                                + "3) Terapeuta\n"
+                                + "Su opcion: ");
+                        opcion = sc.nextInt();
+                        vs = sc.nextLine();
+                        
+                        switch (opcion) {
+                            case 1:
+                                
+                                System.out.println("Ingrese el numero de enfermedades curadas");
+                                int num_enfermedades = sc.nextInt();
+                                vs = sc.nextLine();
+                                
+                                equipos.get(equipos.size()-1).getMed().add(new MedicoGeneral(num_enfermedades,colegio,nombre,apellido,an_profesional,salario));
+                                System.out.println("Se ha agregado un Medico general");
+                                
+                                break;
+                            case 2:
+                                System.out.println("Ingrese el número de cirugias");
+                                int num_cirugias = sc.nextInt();
+                                vs = sc.nextLine();
+                                
+                                equipos.get(equipos.size()-1).getMed().add(new Cirujano(num_cirugias, colegio, nombre, apellido, an_profesional, salario));
+                                System.out.println("Se ha agregado un Cirujano");
+                                break;
+                                
+                            case 3:
+                                System.out.println("Ingrese el numero de Terapies");
+                                int num_terapias = sc.nextInt();
+                                vs = sc.nextLine();
+                                
+                                equipos.get(equipos.size()-1).getMed().add(new Terapeuta(num_terapias, colegio, nombre, apellido, an_profesional, salario));
+                                break;
+                            default:
+                                System.out.println("Tipo incorrecto");
+                        }
+                        
+                        System.out.print("Desea dejar de agregar medicos\n: "
+                                + "1) Si\n"
+                                + "2) No\n"
+                                + "Su elección: ");
+                        opcion = sc.nextInt();
+                        vs = sc.nextLine();
+                        
+                        if (opcion == 1) {
+                            break;
+                        }
+                        
+                    }
+                    
+                    
                     
                 case 2:
 
