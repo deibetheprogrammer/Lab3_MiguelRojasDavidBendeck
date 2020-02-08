@@ -39,7 +39,8 @@ public class Lab3_MiguelRojasDavidBendeck {
                     + "2) Despedir personal\n"
                     + "3) Jugar partido\n"
                     + "4) Entrenar\n"
-                    + "5) Salir\n"
+                    + "5) Eliminar Equipo"
+                    + "6) Salir"
                     + "Su opcion: ");
             int opcion = sc.nextInt();
             vs = sc.nextLine();
@@ -345,7 +346,6 @@ public class Lab3_MiguelRojasDavidBendeck {
                             }
                         }
                     }
-                    
                     break;
                 case 4:
 
@@ -373,7 +373,25 @@ public class Lab3_MiguelRojasDavidBendeck {
 
                     break;
                 case 5:
-
+                    System.out.println("Eliminar Equipo");
+                    
+                    if (equipos.isEmpty()) {
+                        System.out.println("No hay equipos ingresados");
+                        break;
+                    } else {
+                        
+                        for (int i = 0; i < equipos.size(); i++) {
+                            System.out.println("[" + i + "]" + equipos.get(i));
+                        }
+                        
+                        System.out.print("Ingrese equipo a eliminar: ");
+                        int elim_op = sc.nextInt();
+                        equipos.remove(elim_op);
+                        System.out.println("Se elimino el equipo con exito");
+                    }
+                    break;
+                    
+                case 6:
                     break OUTER;
                 default:
                     System.out.println("Ingrese una opcion valida");
