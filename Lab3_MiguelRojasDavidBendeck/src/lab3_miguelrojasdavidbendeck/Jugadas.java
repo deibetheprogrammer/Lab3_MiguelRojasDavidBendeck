@@ -27,7 +27,7 @@ public class Jugadas {
 
     @Override
     public String toString() {
-        return "Jugadas{" + "descripcion=" + descripcion + ", efectividad=" + efectividad + '}';
+        return "Jugadas{" + "Descripcion = " + descripcion + ", Efectividad = " + efectividad + '}';
     }
     
     

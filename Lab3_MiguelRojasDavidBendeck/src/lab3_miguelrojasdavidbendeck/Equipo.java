@@ -108,7 +108,10 @@ public class Equipo {
 
     @Override
     public String toString() {
-        return "Equipo{" + "nombre=" + nombre + ", anio_fundacion=" + anio_fundacion + ", campeonatos=" + campeonatos + ", jug=" + jug + ", med=" + med + ", plays=" + plays + ", prep_f=" + prep_f + ", ent_p=" + ent_p + ", asist_e=" + asist_e + ", dueno=" + dueno + '}';
+        return "Equipo{" + "Nombre del Equipo= " + nombre + ", Anio de Fundacion = " + anio_fundacion + ", Campeonatos Ganados = " 
+                + campeonatos + ", Entrenador ha jugado = " + jug + ", Medicos = " + med + ", Jugadas = " 
+                + plays + ", Preparador Fisico = " + prep_f + ", Entrenador Principal = " 
+                + ent_p + ", Asistente de Entrenador = " + asist_e + ", Dueno=" + dueno + '}';
     }
     
     

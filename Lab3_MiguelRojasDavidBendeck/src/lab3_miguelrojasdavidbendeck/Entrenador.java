@@ -30,6 +30,6 @@ public class Entrenador extends Persona{
 
     @Override
     public String toString() {
-        return "Entrenador{" + "played=" + played + ", jugada_fav=" + jugada_fav + '}';
+        return "Entrenador{" + "Ha jugado = " + played + ", Jugador Favorito = " + jugada_fav + '}';
     }
 }

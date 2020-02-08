@@ -295,7 +295,21 @@ public class Lab3_MiguelRojasDavidBendeck {
 
                     break;
                 case 3:
-
+                    
+                    int turno = 1;
+                    boolean fin = false;
+                    while(fin == false){
+                        //Turno de Jugador
+                        if (turno % 2 != 0) {
+                            
+                            
+                            
+                            turno ++;
+                        } else{
+                            //Turno de Computadora
+                            turno ++;
+                        }
+                    }
                     break;
                 case 4:
 

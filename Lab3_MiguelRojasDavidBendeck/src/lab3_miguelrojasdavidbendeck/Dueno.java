@@ -30,7 +30,7 @@ public class Dueno extends Persona{
 
     @Override
     public String toString() {
-        return "Dueno{" + "networth=" + networth + ", ciudad_nac=" + ciudad_nac + '}';
+        return "Dueno{" + "Networth = " + networth + ", Ciudad de Nacionalidad = " + ciudad_nac + '}';
     }
     
 }

@@ -18,7 +18,7 @@ public class Cirujano extends Medico{
 
     @Override
     public String toString() {
-        return "Cirujano{" + "num_cirugias=" + num_cirugias + '}';
+        return "Cirujano{" + "Numero de Cirugias=" + num_cirugias + '}';
     }
     
     

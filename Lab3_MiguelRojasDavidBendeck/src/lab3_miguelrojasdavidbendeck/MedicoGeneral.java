@@ -18,7 +18,7 @@ public class MedicoGeneral extends Medico{
 
     @Override
     public String toString() {
-        return "MedicoGeneral{" + "num_enfermedades=" + num_enfermedades + '}';
+        return "MedicoGeneral{" + "Numero de Enfermedades = " + num_enfermedades + '}';
     }
     
     

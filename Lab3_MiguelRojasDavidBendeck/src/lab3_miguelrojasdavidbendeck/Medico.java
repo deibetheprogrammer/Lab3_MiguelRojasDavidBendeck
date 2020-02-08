@@ -21,7 +21,7 @@ public class Medico extends Persona{
 
     @Override
     public String toString() {
-        return "Medico{" + "colegio=" + colegio + '}';
+        return "Medico{" + "Colegio donde Estudio = " + colegio + '}';
     }
     
     

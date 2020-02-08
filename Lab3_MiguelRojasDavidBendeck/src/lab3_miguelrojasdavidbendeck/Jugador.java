@@ -99,7 +99,9 @@ public class Jugador  extends Persona{
 
     @Override
     public String toString() {
-        return "Jugador{" + "numero=" + numero + ", tiro_3=" + tiro_3 + ", defensa=" + defensa + ", tiro_media=" + tiro_media + ", rebote=" + rebote + ", bandeja=" + bandeja + ", pases=" + pases + ", posteo=" + posteo + ", altura=" + altura + '}';
+        return "Jugador{" + "Numero de Camiseta = " + numero + ", Tiro de 3 = " + tiro_3 + ", Defensa = " + defensa + ", Tiro de Media = " 
+                + tiro_media + ", Rebote = " + rebote + ", Bandeja = " + bandeja 
+                + ", Pases = " + pases + ", Posteo = " + posteo + ", Altura = " + altura + '}';
     }
 
     
