@@ -40,7 +40,8 @@ public class Lab3_MiguelRojasDavidBendeck {
                     + "3) Jugar partido\n"
                     + "4) Entrenar\n"
                     + "5) Eliminar Equipo"
-                    + "6) Salir"
+                    + "6) Listar Mercado"
+                    + "7) Salir"
                     + "Su opcion: ");
             int opcion = sc.nextInt();
             vs = sc.nextLine();
@@ -274,6 +275,13 @@ public class Lab3_MiguelRojasDavidBendeck {
 
                     System.out.println("Creo su equipo con exito!!");
                 case 2:
+                    System.out.println("Ingrese el equipo: ");
+                    posicion = sc.nextInt();
+                    vs = sc.nextLine();
+                    
+                    Equipo team = equipos.get(posicion);
+                    
+                    team.toString();
 
                     System.out.print("Que tipo de personal desea despedir: \n"
                             + "1) Jugadores\n"
@@ -284,13 +292,44 @@ public class Lab3_MiguelRojasDavidBendeck {
 
                     switch (opcion) {
                         case 1:
-
+                            System.out.println("Ingrese la posicion del jugador a despedir");
+                            posicion = sc.nextInt();
+                            vs = sc.nextLine();
+                            agentesLibres.add(team.getJug().get(posicion));
+                            team.getJug().remove(posicion);
                             break;
                         case 2:
-
+                            System.out.println("Ingrese la posicion del medico a despedir");
+                            posicion = sc.nextInt();
+                            vs = sc.nextLine();
+                            agentesLibres.add(team.getMed().get(posicion));
+                            team.getMed().remove(posicion);
                             break;
                         case 3:
-
+                            System.out.print("Que tipo entrenador desea despedir:\n"
+                                    + "1) Preparador fisico\n"
+                                    + "2) Entrenador principal\n"
+                                    + "3) Entrenador asisente\n"
+                                    + "Su opcion:");
+                            opcion = sc.nextInt();
+                            vs = sc.nextLine();
+                            switch (opcion) {
+                                case 1:
+                                    System.out.println("Ingrese la posicion del preparador a quien despedir");
+                                    posicion = sc.nextInt();
+                                    vs = sc.nextLine();
+                                    agentesLibres.add(team.getPrep_f().get(posicion));
+                                    team.getPrep_f().remove(posicion);
+                                    break;
+                                case 2:
+                                    agentesLibres.add(team.getEnt_p());
+                                    team.setEnt_p(null);
+                                    break;
+                                case 3:
+                                    agentesLibres.add(team.getAsist_e());
+                                    team.setAsist_e(null);
+                                    break;
+                            }
                             break;
                     }
 
@@ -390,8 +429,18 @@ public class Lab3_MiguelRojasDavidBendeck {
                         System.out.println("Se elimino el equipo con exito");
                     }
                     break;
-                    
                 case 6:
+                    if (agentesLibres.isEmpty()) {
+                        System.out.println("No hay agentes libres");
+                        break;
+                    } else {
+                        for (int i = 0; i < agentesLibres.size(); i++) {
+                            System.out.println("[" + i + "]" + agentesLibres.get(i));
+                        }
+                    }
+                    
+                    break;
+                case 7:
                     break OUTER;
                 default:
                     System.out.println("Ingrese una opcion valida");
