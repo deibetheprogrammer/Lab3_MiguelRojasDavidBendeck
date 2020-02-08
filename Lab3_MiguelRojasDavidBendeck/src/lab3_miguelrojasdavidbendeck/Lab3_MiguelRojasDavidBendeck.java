@@ -135,8 +135,8 @@ public class Lab3_MiguelRojasDavidBendeck {
                     }//Fin Agregar Jugadores
                     count = 0;
                     System.out.println("Agregar Medicos");
-                    
-                    while(true) {
+
+                    while (true) {
                         System.out.print("Ingrese nombre del medico: ");
                         String nombre = sc.nextLine();
                         System.out.print("Ingrese apellido del medico: ");
@@ -147,10 +147,10 @@ public class Lab3_MiguelRojasDavidBendeck {
                         System.out.print("Ingrese Salario del medico: ");
                         int salario = sc.nextInt();
                         vs = sc.nextLine();
-                        
+
                         System.out.println("Ingrese el Colegio del medico");
                         String colegio = sc.nextLine();
-                        
+
                         System.out.print("Tipo de medico: \n"
                                 + "1) Medico general\n"
                                 + "2) Cirujano\n"
@@ -158,53 +158,120 @@ public class Lab3_MiguelRojasDavidBendeck {
                                 + "Su opcion: ");
                         opcion = sc.nextInt();
                         vs = sc.nextLine();
-                        
+
                         switch (opcion) {
                             case 1:
-                                
+
                                 System.out.println("Ingrese el numero de enfermedades curadas");
                                 int num_enfermedades = sc.nextInt();
                                 vs = sc.nextLine();
-                                
-                                equipos.get(equipos.size()-1).getMed().add(new MedicoGeneral(num_enfermedades,colegio,nombre,apellido,an_profesional,salario));
+
+                                equipos.get(equipos.size() - 1).getMed().add(new MedicoGeneral(num_enfermedades, colegio, nombre, apellido, an_profesional, salario));
                                 System.out.println("Se ha agregado un Medico general");
-                                
+
                                 break;
                             case 2:
                                 System.out.println("Ingrese el número de cirugias");
                                 int num_cirugias = sc.nextInt();
                                 vs = sc.nextLine();
-                                
-                                equipos.get(equipos.size()-1).getMed().add(new Cirujano(num_cirugias, colegio, nombre, apellido, an_profesional, salario));
+
+                                equipos.get(equipos.size() - 1).getMed().add(new Cirujano(num_cirugias, colegio, nombre, apellido, an_profesional, salario));
                                 System.out.println("Se ha agregado un Cirujano");
                                 break;
-                                
+
                             case 3:
                                 System.out.println("Ingrese el numero de Terapies");
                                 int num_terapias = sc.nextInt();
                                 vs = sc.nextLine();
-                                
-                                equipos.get(equipos.size()-1).getMed().add(new Terapeuta(num_terapias, colegio, nombre, apellido, an_profesional, salario));
+
+                                equipos.get(equipos.size() - 1).getMed().add(new Terapeuta(num_terapias, colegio, nombre, apellido, an_profesional, salario));
                                 break;
                             default:
                                 System.out.println("Tipo incorrecto");
                         }
-                        
+
                         System.out.print("Desea dejar de agregar medicos\n: "
                                 + "1) Si\n"
                                 + "2) No\n"
                                 + "Su elección: ");
                         opcion = sc.nextInt();
                         vs = sc.nextLine();
-                        
+
                         if (opcion == 1) {
                             break;
                         }
-                        
+
                     }
+
+                    System.out.println("Agregar Entrenadores");
+                    System.out.print("Ingrese nombre del Entrenador: ");
+                    String nombre = sc.nextLine();
+                    System.out.print("Ingrese apellido del Entrenador: ");
+                    String apellido = sc.nextLine();
+                    System.out.print("Ingrese Anios como Entrenador :");
+                    int an_profesional = sc.nextInt();
+                    vs = sc.nextLine();
+                    int salario = 0;
+                    boolean jugo = false;
+                    System.out.println("[1] El entrenador fue jugador");
+                    System.out.println("[2] El entrenador no jue jugador");
+                    int elec = sc.nextInt();
+                    vs = sc.nextLine();
+                    switch (elec) {
+                        case 1:
+                            jugo = true;
+                            break;
+                        case 2:
+                            jugo = false;
+                            break;
+                        default:
+                            System.out.println("Ingrese una opcion valida");
+                    }
+
+                    System.out.print("Ingrese su jugada favorita: ");
+                    String jugada_fav = sc.nextLine();
+                    //Elegir entrenador
+                    System.out.println("Tipos de Entrenadores");
+                    System.out.println("[1] Entrenador Principal");
+                    System.out.println("[2] Asistente de Entrenado");
+                    System.out.println("[3] Preparador Fisica");
+                    System.out.print("Eliga de que tipo es el entrenador: ");
+                    int op_entrenador = sc.nextInt();
+                    switch (op_entrenador) {
+                        case 1:
+                            salario = 200000000;
+                            equipos.get(equipos.size() - 1).setEnt_p(new Entrenador_Principal(jugo, jugada_fav, salario, nombre, apellido, an_profesional));
+                            break;
+                        case 2:
+                            salario = 100000000;
+                            equipos.get(equipos.size() - 1).setAsist_e(new Asistente_Entrenador(jugo, jugada_fav, salario, nombre, apellido, an_profesional));
+                            break;
+                        case 3:
+                            salario = 800000;
+                            equipos.get(equipos.size() - 1).getPrep_f().add(new Preparador_Fisico(jugo, jugada_fav, salario, nombre, apellido, an_profesional));
+                            break;
+                        default:
+                            System.out.println("Ingrese una opcion valida");
+                    }
+                    System.out.println("Agregar Dueno");
+                    System.out.print("Ingrese nombre del Dueno: ");
+                    nombre = sc.nextLine();
+                    System.out.print("Ingrese apellido del Dueno: ");
+                    apellido = sc.nextLine();
+                    System.out.print("Ingrese Anios como Dueno :");
+                    an_profesional = sc.nextInt();
+                    vs = sc.nextLine();
+                    System.out.print("Ingrese Salario del Dueno: ");
+                    salario = sc.nextInt();
+                    vs = sc.nextLine();
+                    System.out.print("Ingrese Net Worth del Dueno: ");
+                    int networth = sc.nextInt();
+                    System.out.print("Ingrese Ciudad donde Nacio: ");
+                    String ciudad = sc.nextLine();
+                    vs = sc.nextLine();
+                    equipos.get(equipos.size() - 1).setDueno(new Dueno(networth, ciudad, nombre, apellido, an_profesional, salario));
                     
-                    
-                    
+                    System.out.println("Creo su equipo con exito!!");
                 case 2:
 
                     System.out.print("Que tipo de personal desea despedir: \n"
