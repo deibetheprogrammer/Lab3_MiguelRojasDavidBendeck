@@ -49,7 +49,7 @@ public class Lab3_MiguelRojasDavidBendeck {
                     System.out.println("Crear Equipo");
                     System.out.print("Ingrese nombre del equipo: ");
                     String nom_equipo = sc.nextLine();
-                    System.out.print("Ingrese anios de Fundacion: ");
+                    System.out.print("Ingrese anio de Fundacion: ");
                     int an_fundado = sc.nextInt();
                     vs = sc.nextLine();
                     System.out.print("Ingrese numero de Campeonatos Ganados: ");
@@ -57,7 +57,7 @@ public class Lab3_MiguelRojasDavidBendeck {
                     vs = sc.nextLine();
                     equipos.add(new Equipo(nom_equipo, an_fundado, num_campeonato));
                     System.out.println("Agregar el Personal");
-                    System.out.println("Agregague los Jugadores");
+                    System.out.println("Agregue los Jugadores");
                     while (count < 13) {
                         //Atributos Persona
                         System.out.print("Ingrese nombre del Jugador: ");
@@ -80,7 +80,7 @@ public class Lab3_MiguelRojasDavidBendeck {
                         System.out.print("Ingrese Rating de Defensa: ");
                         int defensa = sc.nextInt();
                         vs = sc.nextLine();
-                        System.out.println("Ingrese Rating de Tiro de Media");
+                        System.out.println("Ingrese Rating de Tiro de Media: ");
                         int tiro_media = sc.nextInt();
                         vs = sc.nextLine();
                         System.out.print("Ingrese Rating de Rebote: ");
@@ -92,7 +92,7 @@ public class Lab3_MiguelRojasDavidBendeck {
                         System.out.print("Ingrese Rating de Pases: ");
                         int pases = sc.nextInt();
                         vs = sc.nextLine();
-                        System.out.println("Ingrese Rating de Posteo: ");
+                        System.out.print("Ingrese Rating de Posteo: ");
                         int posteo = sc.nextInt();
                         vs = sc.nextLine();
                         Double altura = 0.0;
@@ -270,7 +270,7 @@ public class Lab3_MiguelRojasDavidBendeck {
                     String ciudad = sc.nextLine();
                     vs = sc.nextLine();
                     equipos.get(equipos.size() - 1).setDueno(new Dueno(networth, ciudad, nombre, apellido, an_profesional, salario));
-                    
+
                     System.out.println("Creo su equipo con exito!!");
                 case 2:
 
@@ -296,20 +296,56 @@ public class Lab3_MiguelRojasDavidBendeck {
                     break;
                 case 3:
                     
-                    int turno = 1;
-                    boolean fin = false;
-                    while(fin == false){
-                        //Turno de Jugador
-                        if (turno % 2 != 0) {
-                            
-                            
-                            
-                            turno ++;
-                        } else{
-                            //Turno de Computadora
-                            turno ++;
+                    for (Equipo equipo : equipos) {
+                        System.out.println("#" + count + ":");
+                        equipo.toString();
+                        count++;
+                    }
+                    count = 0;
+                    
+                    System.out.println("Elija un equipo para que juege(ingrese la posicion): ");
+                    posicion = sc.nextInt();
+                    vs = sc.nextLine();
+                    
+                    Equipo equipo = equipos.get(posicion);
+                    
+                    System.out.println("El partido ha comenzado! :");
+                    
+                    int lesion = 1 + rand.nextInt(100);
+                    if (lesion <= 40) {
+                        System.out.println("Se ha lesionado un jugador: ");
+                        for (Medico medico : equipo.getMed()) {
+                            if (medico instanceof Cirujano) {
+                                int n = ((Cirujano) medico).getNum_cirugias() + 1;
+                                ((Cirujano) medico).setNum_cirugias(n);
+                                System.out.println("Se le ha asignado un cirujano");
+                                break;
+                            }
+                        }
+                        
+                        for (Medico medico : equipo.getMed()) {
+                            if (medico instanceof Terapeuta) {
+                                int n = ((Terapeuta) medico).getNum_terapias()+ 1;
+                                ((Terapeuta) medico).setNum_terapias(n);
+                                System.out.println("Se le ha asignado un terapeuta");
+                                break;
+                            }
                         }
                     }
+                    
+                    int enfermedad = 1 + rand.nextInt(100);
+                    if (enfermedad <= 30) {
+                        System.out.println("Se ha enfermado un jugador");
+                        for (Medico medico : equipo.getMed()) {
+                            if (medico instanceof MedicoGeneral) {
+                                int n = ((MedicoGeneral) medico).getNum_enfermedades() +1;
+                                ((MedicoGeneral) medico).setNum_enfermedades(n);
+                                System.out.println("Se le ha asignado un medico general");
+                                break;
+                            }
+                        }
+                    }
+                    
                     break;
                 case 4:
 
